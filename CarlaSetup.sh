@@ -81,7 +81,7 @@ echo "Python Packages Installed..."
 
 echo "Clonning CARLA Content asynchronously... (see the progres in ContentClone.log)"
 mkdir -p Unreal/CarlaUnreal/Content
-git -C Unreal/CarlaUnreal/Content clone -b ue5-dev https://bitbucket.org/carla-simulator/carla-content.git Carla &> ContentClone.log&
+git -C Unreal/CarlaUnreal/Content clone -b pattern-ue5 git@github.com:Pattern-Labs/carla-content.git Carla &> ContentClone.log&
 
 CMAKE_MINIMUM_VERSION=3.28.0
 if satisfies_minimum_version $CMAKE_MINIMUM_VERSION; then

@@ -2,7 +2,7 @@ SETLOCAL EnableDelayedExpansion
 
 echo Starting Content Download...
 if not exist "Unreal\CarlaUnreal\Content" mkdir Unreal\CarlaUnreal\Content
-start cmd /c git -C Unreal/CarlaUnreal/Content clone -b ue5-dev https://bitbucket.org/carla-simulator/carla-content.git Carla
+start cmd /c git -C Unreal/CarlaUnreal/Content clone -b pattern-ue5 git@github.com:Pattern-Labs/carla-content.git Carla
 
 
 echo Installing Visual Studio 2022...
