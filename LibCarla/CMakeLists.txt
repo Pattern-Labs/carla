@@ -1,3 +1,8 @@
+cmake_minimum_required (
+  VERSION
+  3.27.2
+)
+
 project (
   libcarla
   LANGUAGES
