@@ -131,9 +131,14 @@ cmake -G Ninja -S . -B Build \
     --toolchain=$PWD/CMake/Toolchain.cmake \
     -DLAUNCH_ARGS="-prefernvidia" \
     -DCMAKE_BUILD_TYPE=Release \
+<<<<<<< HEAD
     -DENABLE_ROS2=ON \
     -DPython_ROOT_DIR=${python_root} \
     -DPython3_ROOT_DIR=${python_root} \
+=======
+    -DENABLE_ROS2=OFF \
+    -DBUILD_CARLA_UNREAL=ON \
+>>>>>>> 3d3cf22db (Closer to making it work)
     -DCARLA_UNREAL_ENGINE_PATH=$CARLA_UNREAL_ENGINE_PATH
 echo "Building CARLA..."
 cmake --build Build
