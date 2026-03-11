@@ -731,24 +731,17 @@ void ACarlaWheeledVehicle::SetWheelSteerDirection(EVehicleWheelLocation WheelLoc
 }
 
 float ACarlaWheeledVehicle::GetWheelSteerAngle(EVehicleWheelLocation WheelLocation) {
-
-#if 0 // @CARLAUE5     // ToDo We need to investigate about this
-  check((uint8)WheelLocation >= 0)
-    UVehicleAnimationInstance* VehicleAnim = Cast<UVehicleAnimationInstance>(GetMesh()->GetAnimInstance());
-  check(VehicleAnim != nullptr)
-    check(VehicleAnim->GetWheeledVehicleMovementComponent() != nullptr)
-
-    if (bPhysicsEnabled == true)
+  UChaosWheeledVehicleMovementComponent* Movement = GetChaosWheeledVehicleMovementComponent();
+  if (Movement && Movement->Wheels.IsValidIndex((uint8)WheelLocation))
+  {
+    // Get the wheel state from the Chaos vehicle movement component
+    const TObjectPtr<UChaosVehicleWheel>& Wheel = Movement->Wheels[(uint8)WheelLocation];
+    if (Wheel)
     {
-      return VehicleAnim->GetWheeledVehicleMovementComponent()->Wheels[(uint8)WheelLocation]->GetSteerAngle();
+      return Wheel->GetSteerAngle();
     }
-    else
-    {
-      return VehicleAnim->GetWheelRotAngle((uint8)WheelLocation);
-    }
-#else
+  }
   return 0.0F;
-#endif
 }
 
 void ACarlaWheeledVehicle::SetSimulatePhysics(bool enabled) {
