@@ -102,6 +102,7 @@ class SensorManager:
             disp_size = self.display_man.get_display_size()
             camera_bp.set_attribute('image_size_x', str(disp_size[0]))
             camera_bp.set_attribute('image_size_y', str(disp_size[1]))
+            camera_bp.set_attribute('post_process_profile','Town10HD_Opt')
 
             for key in sensor_options:
                 camera_bp.set_attribute(key, sensor_options[key])

@@ -1,0 +1,17 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+psutil = "*"
+requests = "*"
+scikit-build-core = "*"
+numpy = "<2.0,>=1.24.4"
+build = "*"
+pygame = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.12"
