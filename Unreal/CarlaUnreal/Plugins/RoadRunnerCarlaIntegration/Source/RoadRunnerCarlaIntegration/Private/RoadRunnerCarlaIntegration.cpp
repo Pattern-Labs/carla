@@ -140,7 +140,7 @@ namespace
 		}
 
 		// Re-create package for new material instance
-		UPackage* package = CreatePackage(NULL, *basePackageName);
+		UPackage* package = CreatePackage(*basePackageName);
 
 		// Create material instance from our base material
 		// Modified: always create a material instance from our base material
