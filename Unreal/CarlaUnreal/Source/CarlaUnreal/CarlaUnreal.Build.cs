@@ -34,10 +34,10 @@ public class CarlaUnreal : ModuleRules
 
 		if (Target.Type == TargetType.Editor)
             PublicDependencyModuleNames.Add("UnrealEd");
-        if (Target.Configuration == UnrealTargetConfiguration.Shipping)
-        {
-            PublicDefinitions.Add("ALLOW_CONSOLE_IN_SHIPPING=1");
-        }
+        // if (Target.Configuration == UnrealTargetConfiguration.Shipping)
+        // {
+        //     PublicDefinitions.Add("ALLOW_CONSOLE_IN_SHIPPING=1");
+        // }
 
         LogFlagStatus("Slate UI", EnableSlateUI);
 
