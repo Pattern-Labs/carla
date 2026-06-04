@@ -186,6 +186,10 @@ float AInertialMeasurementUnit::ComputeCompass()
 void AInertialMeasurementUnit::PostPhysTick(UWorld *World, ELevelTick TickType, float DeltaTime)
 {
   TRACE_CPUPROFILER_EVENT_SCOPE(AInertialMeasurementUnit::PostPhysTick);
+  // Vehicle (owner) can be destroyed mid-tick (e.g. when CARLA culls an
+  // actor); ComputeGyroscope / ComputeAccelerometer dereference GetOwner()
+  // unconditionally and crash. Skip the tick if the owner is gone.
+  if (GetOwner() == nullptr) { return; }
   AccelerometerValue = ComputeAccelerometer(DeltaTime);
   GyroscopeValue = ComputeGyroscope();
   CompassValue = ComputeCompass();

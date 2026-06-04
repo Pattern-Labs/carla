@@ -116,10 +116,10 @@ public:
     VisualGameTime = Time;
 
     // update time in material parameters also
-    if (MaterialParameters)
-    {
-      MaterialParameters->SetScalarParameterValue(FName("VisualTime"), VisualGameTime);
-    }
+    // if (MaterialParameters)
+    // {
+    //   MaterialParameters->SetScalarParameterValue(FName("VisualTime"), VisualGameTime);
+    // }
   }
 
   /// Return the list of actor definitions that are available to be spawned this
